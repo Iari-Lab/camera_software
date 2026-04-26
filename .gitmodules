@@ -1,3 +1,6 @@
 [submodule "k230_sdk"]
 	path = k230_sdk
 	url = https://github.com/kendryte/k230_sdk
+[submodule "k230_linux_sdk"]
+	path = k230_linux_sdk
+	url = git@github.com:kendryte/k230_linux_sdk.git
