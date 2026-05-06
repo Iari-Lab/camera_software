@@ -3,7 +3,7 @@
 ### 1. Clone (recursive)
 
 ```bash
-git clone --recursive https://github.com/Iari-Lab/camera_software.git
+git clone --recursive git@github.com:Iari-Lab/camera_software.git
 cd camera_software
 ```
 
