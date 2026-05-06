@@ -1,0 +1,23 @@
+# docker-compose.yaml
+services:
+  k230-build:
+    build:
+      context: k230_linux_sdk/tools/docker
+      dockerfile: Dockerfile
+    image: k230_linux_sdk
+    container_name: k230_build
+    working_dir: /workspace
+    volumes:
+      - ./k230_linux_sdk:/workspace
+      - ./k230_linux_sdk/dl:/workspace/dl
+      - ./k230_linux_sdk/output:/workspace/output
+      - ./k230_linux_sdk/toolchain:/opt/toolchain
+    stdin_open: true
+    tty: true
+    environment:
+      - CONF=${CONF:-k230d_canmv_defconfig}
+    entrypoint: >
+      bash -c "
+        sudo chown -R k230:k230 /workspace/output /workspace/dl /opt/toolchain 2>/dev/null || true &&
+        exec bash
+      "
